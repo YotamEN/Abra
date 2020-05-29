@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Users</title>
+        <meta name="description" content="All users that had their minds read" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+        <link rel="stylesheet" href="/static/css/styles.css" />
+        <link rel="shortcut icon" href="/static/favicon.ico">
+    </head>
+    <body>
+
+
+
+    {% if result.result_name == 'pose' %}
+    <h1>Pose</h1>
+    <h2>Translation: {{ result.trans_x }}, {{ result.trans_y }}, {{ result.trans_z }}</h2>
+    <h2>Rotation: {{ result.rot_x }}, {{ result.rot_y }}, {{ result.rot_z }}, {{ result.rot_w }}</h2>
+    <img src="/static/images/abra_sitting.jpg" width="500" height="500"
+             style="display: block; margin-left: auto; margin-right: auto;"/>
+
+    {% else %}
+    <h1>{{ result.result_name }}</h1>
+    {% if result.result_name == 'feelings' %}
+        <h2>Hunger: {{ result.hunger }}</h2>
+        <h2>Thirst: {{ result.thirst }}</h2>
+        <h2>Exhaustion: {{ result.exhaustion }}</h2>
+        <h2>Happiness: {{ result.happiness }}</h2>
+    {% endif %}
+    <img src="{{image_path}}" width="500" height="500"
+             style="display: block; margin-left: auto; margin-right: auto;"/>
+    {% endif %}
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146098773-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-146098773-1');
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('.menu-cursor').removeClass('menu-cursor-hidden');
+                $('.menu-link').mouseover(function() {
+                    var num = $(this).data('num');
+                    $(this).parents('.menu').find('.menu-cursor').addClass('menu-cursor-temporary-' + num);
+                }).mouseout(function() {
+                    var num = $(this).data('num');
+                    $(this).parents('.menu').find('.menu-cursor').removeClass('menu-cursor-temporary-' + num);
+                });
+            });
+        </script>
+    </body>
+</html>
