@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/YotamEN/abra.svg?branch=master)](https://travis-ci.org/github/YotamEN/abra)
-[![codecov](https://codecov.io/gh/YotamEN/abra/branch/master/graph/badge.svg)](https://codecov.io/gh/YotamEN/abra)
 
 # Abra: Advanced System Design course project (Tel Aviv University)
 
