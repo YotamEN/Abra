@@ -21,6 +21,7 @@ At this point the only DB and MessageQueue supported:
 2. Install:
 
     ```console
+    $ chmod +x ./scripts/run-pipeline.sh
     $ ./scripts/run-pipeline.sh
     [abra] $
     ```
