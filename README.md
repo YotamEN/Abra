@@ -23,6 +23,7 @@ At this point the only DB and MessageQueue supported:
     ```console
     $ chmod +x ./scripts/run-pipeline.sh
     $ ./scripts/run-pipeline.sh
+    $ source .env/bin/activate
     [abra] $
     ```
    
