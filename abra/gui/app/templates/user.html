@@ -19,16 +19,7 @@
                     </div>
                 </div>
                 <div class="index-section index-transparent index-clickable" data-url="{{ user.user_snapshots_url }}">
-                        {% if user.gender == 0 %}
-                        <div class="index-light-green-button">
-
-                            <p>{{ user.username }}'s Personal Information:</p>
-                            <p>User Id:    {{ user.user_id }}</p>
-                            <p>Birthday:   {{ user.birthday }}</p>
-                            <p>Gender:     Male</p>
-
-                        </div>
-                        {% elif user.gender == 1 %}}
+                        {% if user.gender == 1 %}}
                         <div class="index-light-green-button">
 
                         <p>{{ user.username }}'s Personal Information:</p>
@@ -43,7 +34,7 @@
                         <p>{{ user.username }}'s Personal Information:</p>
                             <p>User Id:    {{ user.user_id }}</p>
                             <p>Birthday:   {{ user.birthday }}</p>
-                            <p>Gender:     Other</p>
+                            <p>Gender:     Male</p>
 
                         </div>
                         {% endif %}
