@@ -1,7 +1,6 @@
 from abra.abra_pb2 import Snapshot
 from abra.common import *
 from abra.errors import *
-from abra.server import create_snapshot_id
 import json
 from .parsers import PARSER_NAMES, PoseParser, CImageParser, DImageParser, FeelingsParser
 from pathlib import Path
