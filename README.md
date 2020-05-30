@@ -27,14 +27,6 @@ At this point the only DB and MessageQueue supported:
     [abra] $
     ```
    
-   or 
-   
-   ```console
-    $ ./scripts/install.sh
-    $ source .env/bin/activate
-    [abra] $
-    ```
-   
 
 ## Interfaces
 
