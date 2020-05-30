@@ -11,6 +11,7 @@ ENV/
 # Testing
 .pytest_cache/
 .coverage
+tests/__pycache__/
 
 # Flask, Scrapy, Sphinx
 instance/
