@@ -11,8 +11,9 @@ def parse(parser, data_path):
     if parser not in PARSER_NAMES:
         raise UnknownParserError(f"Unknown parser! please choose one of the following:\n{PARSER_NAMES!r}")
 
-    path = Path(data_path)
-    data = json.loads(path)
+    with open(data_path) as json_file:
+        data_j = json.load(json_file)
+        data = json.loads(data_j)
     user_id, snap_id, path = data[USER_ID_KEY], data[SNAPSHOT_ID_KEY], data[USER_SNAPSHOTS_URL_KEY]
     parser_h = get_parser(parser)
 

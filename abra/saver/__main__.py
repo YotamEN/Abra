@@ -1,6 +1,7 @@
 from abra.common import DATABASE_DEFAULT_URL, FAIL
 from abra.errors import UnsupportedTopic
 import click
+import json
 from .saver import Saver
 
 
@@ -15,7 +16,9 @@ def main():
 @click.argument('data_path')
 def save_cli(database, topic, data_path):
     saver = Saver(database)
-    saver.save(topic=topic, data=data_path)
+    with open(data_path) as f:
+        data = f.read()
+    saver.save(topic=topic, data=data)
 
 
 @main.command("run-saver")

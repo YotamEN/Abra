@@ -61,6 +61,10 @@ def new_msg():
         _publish(snap_path_json)
         return SUCCESS
 
+    # For debug:
+    # with open("dbg.json", "w") as of:
+    #     json.dump(snap_path_json, of)
+
     publish_msg(snap_path_json)
     return snap_path_json
 
