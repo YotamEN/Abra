@@ -1,6 +1,7 @@
 from abra.abra_pb2 import Snapshot
 from abra.common import *
 from abra.errors import *
+from abra.server import create_snapshot_id
 import json
 from .parsers import PARSER_NAMES, PoseParser, CImageParser, DImageParser, FeelingsParser
 from pathlib import Path
@@ -21,7 +22,7 @@ def parse(parser, data_path):
 #     user_id, snapshot_id, path = data[USER_ID_KEY], data[SNAPSHOT_ID_KEY], data[USER_SNAPSHOTS_URL_KEY]
     snapshot = load_snapshot(path)
     parsed_data = parser_h.parse(msg=snapshot)
-    user_id, snapshot_id = snapshot[USER_ID_KEY], snapshot[SNAPSHOT_ID_KEY]
+    user_id, snapshot_id = snapshot.user_id, create_snapshot_id(snapshot.user_id, snapshot.datetime)
     wrapped_parsed_data = wrap_parsed_data(parsed_data, parser, user_id, snapshot_id)
     parsed_data_json = json.dumps(wrapped_parsed_data)
     return parsed_data_json
