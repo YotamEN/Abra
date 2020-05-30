@@ -12,11 +12,15 @@ def parse(parser, data_path):
         raise UnknownParserError(f"Unknown parser! please choose one of the following:\n{PARSER_NAMES!r}")
 
     path = Path(data_path)
+    data = json.loads(path)
+    user_id, snap_id, path = data[USER_ID_KEY], data[SNAPSHOT_ID_KEY], data[USER_SNAPSHOTS_URL_KEY]
     parser_h = get_parser(parser)
 
     snapshot = load_snapshot(path)
     parsed_data = parser_h.parse(msg=snapshot)
-    return parsed_data
+    wrapped_parsed_data = wrap_parsed_data(parsed_data, parser, user_id, snap_id)
+    parsed_data_json = json.dumps(wrapped_parsed_data)
+    return parsed_data_json
 
 
 def wrap_parsed_data(parsed_data, parser, user_id, snapshot_id):
