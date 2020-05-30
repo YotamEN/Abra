@@ -12,6 +12,7 @@ def main():
 @main.command("save")
 @click.option("--database", "-d", default=DATABASE_DEFAULT_URL)
 @click.argument('topic')
+@click.argument('data_path')
 def save_cli(database, topic, data_path):
     saver = Saver(database)
     saver.save(topic=topic, data=data_path)
